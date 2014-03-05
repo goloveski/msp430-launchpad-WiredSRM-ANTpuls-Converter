@@ -12,7 +12,6 @@
 //  After a character has been received, the UART receive function forces exit
 //  from LPM3 in the Mainloop which configures the port pins (P1 & P2) based
 //  on the value of the received byte (i.e., if BIT0 is set, turn on P1.0).
-
 //  ACLK = TACLK = LFXT1 = 32768Hz, MCLK = SMCLK = default DCO
 //  //* An external watch crystal is required on XIN XOUT for ACLK *//
 //
@@ -23,7 +22,7 @@
 //         --|RST          XOUT|-
 //           |                 |
 //           |   CCI0B/TXD/P1.2|-------->
-//           |                 | 9600 8N1
+//           |                 | 4800 8N1
 //           |   CCI0A/RXD/P1.1|<--------
 //
 //
@@ -34,11 +33,12 @@
 //******************************************************************************
 
 //******************************************************************************
+//VSS   ==> AP2 VSS
 //P1.0 LED RED
-//P1.1TXD
-//P1.2RXD
+//P1.1TXD  ==> AP2 UART RX
+//P1.2RXD  ==> AP2 UART TX
 //P1.3 mode change switch
-//P1.4 Power supply for ANT RF
+//P1.4 Power supply for ANT RF ==> AP2 VDD
 //P1.5 pulse ticket capture with COMPARATOR
 //P1.6 LED green
 //P1.7 COMPARATOR BIAS
